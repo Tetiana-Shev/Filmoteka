@@ -1,0 +1,78 @@
+.modal-trailer__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background: var(--backdrop-modal-color);
+  overflow-y: scroll;
+
+  @include customTransition(opacity);
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .modal-trailer__backdrop.is-hidden .modal-trailer {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+.modal-trailer {
+  margin: 0;
+  display: block;
+  width: 300px;
+  max-height: 100vh;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: $tablet) {
+    width: 700px;
+    height: 450px;
+    top: 48%;
+    left: 50%;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 875px;
+    height: 550px;
+    top: 46%;
+    left: 50%;
+  }
+}
+
+.modal__iframe {
+  border: 2px solid var(--bg-secondary-color);
+  border-radius: 4px;
+  width: 300px;
+  height: 168px;
+  @include customTransition(transform);
+  @media screen and (min-width: $tablet) {
+    width: 700px;
+    height: 450px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 875px;
+    height: 550px;
+  }
+}
+
+.modal-trailer__cross-frame {
+  text-align: center;
+  position: absolute;
+  font-size: 20px;
+  line-height: 30px;
+  top: -15px;
+  right: -15;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--text-additional-color);
+  border-radius: 50%;
+  color: var(--secondary-background-color);
+  cursor: pointer;
+  @include customTransition(color);
+  &:hover {
+    color: var(--accent-main-color);
+  }
+}
